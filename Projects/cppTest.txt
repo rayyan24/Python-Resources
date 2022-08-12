@@ -1,0 +1,30 @@
+#include <iostream>
+int isPrime(int n)
+{
+    for (int i = 2; i <= n/2; i++)
+    {
+        if (n % i == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+using namespace std;
+int main()
+{
+    int num;
+    cout << "Rayyan\t 11217702020\n -------------\n";
+    cout << "Enter the Number " << endl;
+    cin >> num;
+    if (isPrime(num)==0)
+    {
+        cout<<num<<" is Not Prime"<<endl;
+    }
+    else
+    {
+        cout<<num<<" is Prime"<<endl;
+    }
+    
+    return 0;
+}

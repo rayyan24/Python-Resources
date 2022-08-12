@@ -1,0 +1,10 @@
+a=input("Enter Name\n")
+b=input("Enter favorite lannguage\n")
+c=input("Enter Name\n")
+d=input("Enter favorite lannguage\n")
+e=input("Enter Name\n")
+f=input("Enter favorite lannguage\n")
+g=input("Enter Name\n")
+h=input("Enter favorite lannguage\n")
+d1={a:b,c:d,e:f,g:h}
+print(d1)
