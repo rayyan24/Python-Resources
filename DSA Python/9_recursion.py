@@ -51,10 +51,61 @@ def checkSorted(arr:list[int]):
             return helper(arr,size,curElem+1)
     size=len(arr)-1
     return helper(arr,size)  
+def linearSearch(arr,target,index=0)->int:
+    if index>len(arr):
+        return -1
+    elif arr[index]==target:
+        return index
+    else:
+        return linearSearch(arr,target,index+1)
+def linearSearch_(arr,target)->list[int]:
+    # occurances=[]
+    # def helper(arr,target,index=0):
+    #     if index>len(arr):
+    #         return 
+    #     elif arr[index]==target:
+    #         occurances.append(index)
+    #     helper(arr,target,index+1)
+        
+    # helper(arr,target)
+    # return occurances
+    occurances=[]
+    s=len(arr)
+    def helper(arr,t,index=0,size=s):
+        if index==size:
+            return
+        if arr[index]==target:
+            occurances.append(index)
+        helper(arr,t,index+1,s)
+    helper(arr,target,0,s)
+    return occurances if len(occurances)!=0 else -1
+def rotatedBinarySearch(arr,target,start,end):
+    if start>end:
+        return -1
+    mid=(start+end)//2
+    if arr[mid]==target:
+        return mid
+    elif arr[mid]>= arr[start]:
+        if target<=arr[mid] and target>=arr[start]:
+            return rotatedBinarySearch(arr,target,start,mid-1)
+        else:
+            return rotatedBinarySearch(arr,target,mid+1,end)
+    else:
+        if target>=arr[mid] and target<=arr[end]:
+            return rotatedBinarySearch(arr,target,mid+1,end)
+        else:
+            return rotatedBinarySearch(arr,target,start,mid-1)
+
+
+
+
+
+
+    
 
 
 def main():
-    a=checkSorted([21,2,3,4,5,12,65,1])
+    a=rotatedBinarySearch([4,5,6,7,0,1,2],2,0,6)
     print(a)
 if __name__=="__main__":
     main()
