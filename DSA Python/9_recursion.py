@@ -2,7 +2,7 @@ def nums(n):
     if n==0:
         return
     nums(n-1)
-    print(n)
+    print(n)   
 def fibo(n):
     if n==0:
         return 0
@@ -95,17 +95,28 @@ def rotatedBinarySearch(arr,target,start,end):
             return rotatedBinarySearch(arr,target,mid+1,end)
         else:
             return rotatedBinarySearch(arr,target,start,mid-1)
-
-
-
-
-
-
-    
-
-
+def RevList(arr,low,high):
+    if low>=high:
+        return
+    else:
+        arr[low],arr[high]=arr[high],arr[low]
+    RevList(arr,low+1,high-1)
+    # insted of using high we can use formula to calculate high (len(arr)-low-1) 
+def isPalindrome(Str):
+    def helper(S,low,high):
+        if low>=high:
+            return True
+        elif S[low]==S[high]:
+                return helper(S,low+1,high-1)
+        else:
+                return False
+    return helper(Str,0,len(Str)-1)
 def main():
-    a=rotatedBinarySearch([4,5,6,7,0,1,2],2,0,6)
+    a=[4,5,6,7,0,1,2]
+    # print(a)
+    # RevList(a,0,len(a)-1)
+    a=isPalindrome("MADsM")
     print(a)
+
 if __name__=="__main__":
     main()

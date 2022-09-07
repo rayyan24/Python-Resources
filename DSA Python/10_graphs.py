@@ -60,7 +60,18 @@ class Graph:
             for j in range(count):
                 print(self.matrix[i][j], end="   ")
             print()
+    def DFS(self, start, visited):
+        
+        print(start, end = ' ')
 
+        visited[start] = True
+
+        for i in range(self.v):
+            
+            
+            if (Graph.adj[start][i] == 1 and
+                    (not visited[i])):
+                self.DFS(i, visited)
 
 
 class Digraph:
@@ -107,6 +118,8 @@ def main() -> None:
     g1.addNodes(1,2,3,4,5)
     a=[(1,2),(2,3),(3,4)]
     g1.addEdges(a)
-    g1.show()
+    g1.show()  
+    v=[False]* g1.getCount()
+    g1.DFS(0,v)
 if __name__ == "__main__":
     main()
