@@ -112,14 +112,40 @@ class Digraph:
             for j in range(count):
                 print(self.matrix[i][j], end="   ")
             print()
-    
+# DFS uses stack (Iterative/Recursive)
+# BFS uses Queue (Iterative Only)
+def DFS(graph,source):
+    stack=[source]
+    while len(stack)>0:
+        current=stack.pop()
+        print(current,end=" ")
+        for neighbor in graph[current][::-1]:
+            stack.append(neighbor)
+def _DFS(graph,source):
+    print(source)
+    for i in graph[source]:
+        _DFS(graph,i)
+def BFS(graph,source):
+    queue=[source]
+    while len(queue)>0:
+        current=queue.pop(0)
+        print(current)
+        for i in graph[current][::-1]:
+            queue.append(i)
+
+
 def main() -> None:
-    g1=Graph()
-    g1.addNodes(1,2,3,4,5)
-    a=[(1,2),(2,3),(3,4)]
-    g1.addEdges(a)
-    g1.show()  
-    v=[False]* g1.getCount()
-    g1.DFS(0,v)
+    graph={
+        "a" : ["b","c"],
+        "b" : ["d"],
+        "c" : ["e"],
+        "d" : ["f"],
+        "e" : [],
+        "f" : []
+    }
+    BFS(graph,"a")
+    
+
+
 if __name__ == "__main__":
     main()
