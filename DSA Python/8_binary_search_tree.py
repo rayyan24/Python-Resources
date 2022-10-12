@@ -5,6 +5,7 @@ class Node:
         self.rightChild = None
 
     def insert(self, data):
+        # to insert root node
         if self.data == None:
             self.data = data
             return

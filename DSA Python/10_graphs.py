@@ -119,7 +119,7 @@ def DFS(graph,source):
     while len(stack)>0:
         current=stack.pop()
         print(current,end=" ")
-        for neighbor in graph[current][::-1]:
+        for neighbor in graph[current][::-1]: 
             stack.append(neighbor)
 def _DFS(graph,source):
     print(source)
