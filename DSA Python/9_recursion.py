@@ -111,6 +111,18 @@ def isPalindrome(Str):
         else:
                 return False
     return helper(Str,0,len(Str)-1)
+# fibonacci series using memoization
+def fib(n):
+    mem=[0]*(n+1)
+    def helper(n):
+        if mem[n]!=0:
+            return mem[n]
+        if n<2:
+            return n
+        mem[n-1]=helper(n-1)
+        mem[n-2]=helper(n-2)
+        return mem[n-1]+mem[n-2]
+    return  helper(n)
 def main():
     a=[4,5,6,7,0,1,2]
     # print(a)
